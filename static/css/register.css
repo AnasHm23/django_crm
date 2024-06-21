@@ -1,0 +1,32 @@
+/* static/css/style.css */
+body {
+    background: url('path/to/your/background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.registration-form {
+    background: rgba(174, 30, 30, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.registration-form .card-header {
+    background: linear-gradient(45deg, #007bff, #00b4d8);
+    color: white;
+    border-radius: 10px 10px 0 0;
+}
+
+.registration-form .form-control {
+    border-radius: 20px;
+}
+
+.registration-form .btn-primary {
+    background: linear-gradient(45deg, #007bff, #00b4d8);
+    border: none;
+    border-radius: 20px;
+}
+
+.registration-form .btn-primary:hover {
+    background: linear-gradient(45deg, #00b4d8, #007bff);
+}

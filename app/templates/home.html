@@ -2,16 +2,35 @@
 
 {% block content %}
 
-<header>
-  <h1>Welcome to My Django Project</h1>
-</header>
+<div class="col-md-6 offset-md-3">
 
-<main>
-  <p>This is the home page content.</p>
-</main>
+{% if user.is_authenticated %}
 
-<footer>
-  <p>© 2024 My Django Project</p>
-</footer>
+<h1>hello world</h1>
+
+{% else %}
+
+<h1>login</h1>
+<br>
+
+<form method="POST" action="{% url 'home' %}">
+  {% csrf_token %}
+  <br>
+    <div class="mb-3">
+      <input type="text" class="form-control" name="username",
+      placeholder="username" required>
+    </div>
+    <br>
+    <div class="mb-3">
+      <input type="password" class="form-control" name="password",
+      placeholder="password" required>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-secondary">Login</button>
+</form>
+
+</div>
+
+{% endif %}
 
 {% endblock %}
