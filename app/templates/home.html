@@ -1,33 +1,17 @@
-<!-- myapp/templates/myapp/home.html -->
+{% extends "base.html" %} 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Django Project</title>
-    <!-- Add your CSS stylesheets or links here -->
-</head>
-<body>
-    <header>
-        <h1>Welcome to My Django Project</h1>
-    </header>
+{% block content %}
 
-    <nav>
-        <!-- Add navigation links here (e.g., About, Contact, etc.) -->
-        <a href="{% url 'about' %}">About</a>
-        <a href="{% url 'contact' %}">Contact</a>
-    </nav>
+<header>
+  <h1>Welcome to My Django Project</h1>
+</header>
 
-    <main>
-        <!-- Add your main content here -->
-        <p>This is the home page content.</p>
-    </main>
+<main>
+  <p>This is the home page content.</p>
+</main>
 
-    <footer>
-        <!-- Add footer content here -->
-        <p>© 2024 My Django Project</p>
-    </footer>
-</body>
-</html>
+<footer>
+  <p>© 2024 My Django Project</p>
+</footer>
 
+{% endblock %}
