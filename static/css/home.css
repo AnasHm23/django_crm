@@ -37,7 +37,7 @@ body {
 }
 
 .table thead {
-    background: linear-gradient(135deg, #007bff, #00b4d8);
+    background: #1a1a1a; /* Darker background color */
     color: white;
 }
 
