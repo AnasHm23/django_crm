@@ -49,3 +49,9 @@ def register(request):
         form = SignUpForm()
         return render(request, 'register.html', {'form': form})
     return render(request, 'register.html', {'form': form})
+
+
+def record(request, id):
+    record = Record.objects.get(pk=id)
+    return render(request, 'record.html', {'record': record})
+    

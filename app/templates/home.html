@@ -28,7 +28,7 @@
                         <tbody>
                             {% if records %}
                                 {% for record in records %}
-                                    <tr>
+                                    <tr class="clickable-row" data-href="{% url 'record' record.pk %}">
                                         <td>{{ record.first_name }} {{ record.last_name }}</td>
                                         <td>{{ record.email }}</td>
                                         <td>{{ record.phone }}</td>
@@ -60,5 +60,16 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var rows = document.querySelectorAll(".clickable-row");
+        rows.forEach(function(row) {
+            row.addEventListener("click", function() {
+                window.location.href = row.getAttribute("data-href");
+            });
+        });
+    });
+</script>
 
 {% endblock %}
