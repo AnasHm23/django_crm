@@ -7,38 +7,34 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card shadow-sm">
-                <div class="card-header text-center bg-secondary text-white">
+            <div class="card shadow-sm registration-form">
+                <div class="card-header text-center">
                     <h4>Register</h4>
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{% url 'register' %}" class="needs-validation" novalidate>
                         {% csrf_token %}
-                        <div class="mb-3">
-                            <input type="text" class="form-control" name="username" placeholder="Username" required>
-                            <div class="invalid-feedback">
-                                Please enter a username.
+
+                        {% if form.errors %}
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>There were some errors with your submission:</strong>
+                                <ul>
+                                    {% for field in form %}
+                                        {% for error in field.errors %}
+                                            <li>{{ error }}</li>
+                                        {% endfor %}
+                                    {% endfor %}
+                                    {% for error in form.non_field_errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" name="email" placeholder="Email" required>
-                            <div class="invalid-feedback">
-                                Please enter a valid email address.
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <input type="password" class="form-control" name="password1" placeholder="Password" required>
-                            <div class="invalid-feedback">
-                                Please enter a password.
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <input type="password" class="form-control" name="password2" placeholder="Confirm Password" required>
-                            <div class="invalid-feedback">
-                                Please confirm your password.
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-secondary w-100">Register</button>
+                        {% endif %}
+
+                        {{ form.as_p }}
+
+                        <button type="submit" class="btn btn-primary w-100">Register</button>
                     </form>
                 </div>
             </div>
@@ -46,23 +42,4 @@
     </div>
 </div>
 
-<script>
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-    'use strict'
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-        .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
-                form.classList.add('was-validated')
-            }, false)
-        })
-})()
-</script>
 {% endblock %}

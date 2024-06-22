@@ -31,7 +31,11 @@ def register(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            user = form.save()
+            form.save()
+            #Authenticate and login
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(request, username=username, password=password)
             login(request, user)
             messages.success(request, "Registration successful! You are now logged in.")
             return redirect('home')
@@ -39,4 +43,5 @@ def register(request):
             messages.error(request, "Registration failed. Please correct the errors below.")
     else:
         form = SignUpForm()
+        return render(request, 'register.html', {'form': form})
     return render(request, 'register.html', {'form': form})
