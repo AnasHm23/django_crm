@@ -1,0 +1,58 @@
+/* static/css/add_record.css */
+body {
+    background: url('path/to/your/background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.registration-form {
+    background: rgba(179, 221, 239, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.registration-form .card-header {
+    background: linear-gradient(135deg, #007bff, #00b4d8);
+    color: white;
+    border-radius: 15px 15px 0 0;
+    padding: 20px 0;
+}
+
+.registration-form .form-control {
+    border-radius: 25px;
+    padding-left: 40px;
+}
+
+.registration-form .form-group {
+    position: relative;
+}
+
+.registration-form .form-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.registration-form .btn-primary {
+    background: linear-gradient(135deg, #007bff, #00b4d8);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 0;
+    transition: background 0.3s ease;
+}
+
+.registration-form .btn-primary:hover {
+    background: linear-gradient(135deg, #00b4d8, #007bff);
+}
+
+.alert-warning {
+    background-color: #ffdd57;
+    border-color: #ffdd57;
+    color: #856404;
+}
+
+.alert-warning .btn-close {
+    color: #856404;
+}
