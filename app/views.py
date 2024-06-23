@@ -20,7 +20,7 @@ def home(request):
             messages.success(request, "You Have Been Logged In!")
             return redirect('home')
         else:
-            messages.error(request, 'There Was An Error Loggin In ...')
+            messages.error(request, 'The password is incorrect!')
             return redirect('home')
     else:
         return render(request, 'home.html', {'records': records})
@@ -53,12 +53,16 @@ def register(request):
 
 def record(request, id):
     if request.user.is_authenticated:
-        record = Record.objects.get(pk=id)
-        return render(request, 'record.html', {'record': record})
+        try:
+            record = Record.objects.get(pk=id)
+            return render(request, 'record.html', {'record': record})
+        except Record.DoesNotExist:
+            messages.error(request, "The ID does not match any Record...")
+            return redirect('home')
     else:
         messages.error(request, "You must be logged in to view the record")
         return redirect('home')
-
+    
 def delete_record(request, id):
     if request.user.is_authenticated:
         record = Record.objects.get(pk=id)
