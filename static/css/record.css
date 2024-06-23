@@ -10,7 +10,7 @@ body {
 }
 
 .animated-card {
-    background: linear-gradient(135deg, #3f638a, #00b4d8);
+    background: linear-gradient(to bottom, #3f638a, #00b4d8);
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     padding: 20px;
@@ -30,7 +30,7 @@ body {
 
 .card-header {
     background: linear-gradient(to bottom, #2791e3, #edeff0);
-    color: linear-gradient(135deg, #3f638a, #00b4d8);
+    color: white;
     border-radius: 15px 15px 0 0;
     padding: 15px;
 }
@@ -54,8 +54,34 @@ body {
     background-color: #e9e9e9;
 }
 
+.btn-primary {
+    background: linear-gradient(to bottom, #007bff, #0056b3);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to bottom, #0056b3, #007bff);
+}
+
+.btn-danger {
+    background: linear-gradient(to bottom, #dc3545, #b02a37);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(to bottom, #b02a37, #dc3545);
+}
+
 .btn-secondary {
-    background: linear-gradient(135deg, #007bff, #00b4d8);
+    background: linear-gradient(to bottom, #007bff, #00b4d8);
     border: none;
     border-radius: 25px;
     padding: 10px 0;
@@ -63,7 +89,7 @@ body {
 }
 
 .btn-secondary:hover {
-    background: linear-gradient(135deg, #00b4d8, #007bff);
+    background: linear-gradient(to bottom, #00b4d8, #007bff);
 }
 
 .form-control {

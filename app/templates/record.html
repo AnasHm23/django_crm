@@ -23,6 +23,13 @@
                         <li class="list-group-item"><strong>Created At:</strong> {{ record.created_at }}</li>
                         <li class="list-group-item"><strong>ID:</strong> {{ record.id }}</li>
                     </ul>
+                    <div class="action-buttons mt-4 text-center">
+                        <a href="{% url 'update_record' record.pk %}" class="btn btn-primary me-2">Update</a>
+                        <form method="POST" action="{% url 'delete_record' record.pk %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
                 </div>
             {% else %}
                 <h3 class="text-center mb-4">Please login to view the record</h3>
