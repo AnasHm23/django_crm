@@ -11,7 +11,7 @@
                     <h4>Add Record</h4>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{% url 'update_record' record.id %}" class="needs-validation" novalidate>
+                    <form method="POST" action="{% url 'add_record' %}" class="needs-validation" novalidate>
                         {% csrf_token %}
 
                         {% if form.errors %}

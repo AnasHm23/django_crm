@@ -88,3 +88,15 @@ body {
     border-radius: 25px;
     padding-left: 15px;
 }
+
+.btn-mine {
+    background: linear-gradient(135deg, #0b3863, #074a5a);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 0;
+    transition: background 0.3s ease;
+}
+
+.btn-mine:hover {
+    background: linear-gradient(135deg, #00b4d8, #04182c);
+}
