@@ -76,19 +76,19 @@ body {
     transition: background 0.3s ease;
 }
 
-.btn-danger:hover {
-    background: linear-gradient(to bottom, #b02a37, #dc3545);
+.btn-delete:hover {
+    background: linear-gradient(to bottom, #df8790, #630b14);
 }
 
-.btn-secondary {
+.btn-update:hover {
+    background: linear-gradient(to bottom, #82c5ec, #042f7e);
+}
+
+.btn-update {
     background: linear-gradient(to bottom, #007bff, #00b4d8);
-    border: none;
-    border-radius: 25px;
-    padding: 10px 0;
-    transition: background 0.3s ease;
 }
 
-.btn-secondary:hover {
+.btn-danger me-1 {
     background: linear-gradient(to bottom, #00b4d8, #007bff);
 }
 
@@ -96,3 +96,8 @@ body {
     border-radius: 25px;
     padding-left: 15px;
 }
+
+.btn-delete {
+    background: linear-gradient(to bottom, #be2d1a, #5b1103);
+}
+
