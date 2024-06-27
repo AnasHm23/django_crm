@@ -1,10 +1,34 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_str
+from django.template.loader import render_to_string
+from django.contrib.sites.shortcuts import get_current_site
+from django.core.mail import EmailMessage
 from .forms import SignUpForm, AddRecord
 from .models import Record
+from .tokens import account_activation_token
+from django.contrib.auth.models import User
+from django.urls import reverse_lazy
+from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmView
+from django.contrib.messages.views import SuccessMessageMixin
 
 
+
+# class customization
+
+class CustomPasswordResetView(SuccessMessageMixin, PasswordResetView):
+    template_name ='password_reset_form.html'
+    success_url = reverse_lazy('home')
+    success_message = "We've sent you the reset password email. You should recieve it shortly."
+
+class CustomPasswordResetConfirmView(SuccessMessageMixin, PasswordResetConfirmView):
+    template_name = 'password_reset_confirm.html'
+    success_url = reverse_lazy('home')
+    success_message = "the password has been reset successfully."
+
+# authentication and authorization
 def home(request):
     
     # pass the records if the user is logged in
@@ -35,22 +59,46 @@ def register(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
-            #Authenticate and login
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']
-            user = authenticate(request, username=username, password=password)
-            login(request, user)
-            messages.success(request, "Registration successful! You are now logged in.")
+            user = form.save(commit=False)
+            user.is_active = False
+            user.save()
+            # Send verification email
+            current_site = get_current_site(request)
+            mail_subject = 'Activate your account'
+            message = render_to_string('acc_active_email.html', {
+                'user': user,
+                'domain': current_site.domain,
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                'token': account_activation_token.make_token(user),
+            })
+            to_email = form.cleaned_data.get('email')
+            email = EmailMessage(mail_subject, message, to=[to_email])
+            email.send()
+            messages.success(request, 'Please confirm your email address to complete the registration')
             return redirect('home')
         else:
             messages.error(request, "Registration failed. Please correct the errors below.")
     else:
         form = SignUpForm()
-        return render(request, 'register.html', {'form': form})
     return render(request, 'register.html', {'form': form})
 
+def activate(request, uidb64, token):
+    try:
+        uid =(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+    
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active = True
+        user.save()
+        messages.success(request, "Thank you for your email confirmation. Now you can login your account.")
+        return redirect('home')
+    else:
+        messages.error(request, 'Activation link is invalid')
+        return redirect('home')
 
+# app urls
 def record(request, id):
     if request.user.is_authenticated:
         try:
@@ -98,3 +146,6 @@ def add_record(request):
     else:
         messages.error(request, "You must be logged in to perform this action.")
         return redirect('home')
+
+def youtube(request):
+    return render(request, 'youtube.html')
