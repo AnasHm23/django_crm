@@ -74,7 +74,7 @@ def register(request):
             to_email = form.cleaned_data.get('email')
             email = EmailMessage(mail_subject, message, to=[to_email])
             email.send()
-            messages.success(request, 'Please confirm your email address to complete the registration')
+            messages.success(request, 'Please confirm your email address to complete the Registration')
             return redirect('home')
         else:
             messages.error(request, "Registration failed. Please correct the errors below.")
