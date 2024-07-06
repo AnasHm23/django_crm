@@ -1,34 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>My Journey</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <style>
-            [class*="col"] {
-                padding: 1rem;
-                background-color: #33b5e5;
-                border: 2px solid #fff;
-                color: #fff;
-            }
-        </style>
-    </head>
-    <head>
-    <body>
-        <div class="container text-center">
-            <div class="row">
-              <div class="col-sm-5 col-md-6">.col-sm-5 .col-md-6</div>
-              <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">.col-sm-5 .offset-sm-2 .col-md-6 .offset-md-0</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Larana Travel</title>
+    {% load static %}
+    <style>
+        .hero-section {
+            background-image: url("{% static 'images/ocean_dj.jpg' %}");
+        }
+    </style>
+    <link rel="stylesheet" href="{% static "css/youtube.css" %}">
+</head>
+<body>
+    <main>
+        <div class="hero-section">
+            <header>
+                <div class="logo"><a href="{% url 'home' %}">django_crm</a></div>
+                <nav class="nav-bar">
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Tour</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                <nav class="nav-login">
+                    <a href="{% url 'home' %}" class="login-btn">Login</a>
+                </nav>
+            </header>
+            <div class="hero-text">
+                <h1>Embark on Your Next Adventure with Confidence</h1>
+                <p>Let us be your guide to discovering the world's wonders with ease and enjoyment.</p>
             </div>
-            <div class="row">
-              <div class="col-sm-6 col-md-5 col-lg-6">.col-sm-6 .col-md-5 .col-lg-6</div>
-              <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">.col-sm-6 .col-md-5 .offset-md-2 .col-lg-6 .offset-lg-0</div>
+            <div class="search-section">
+                <div class="search-box">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" placeholder="Enter your destination">
+                </div>
+                <div class="search-box">
+                    <label for="date">Date</label>
+                    <input type="date" id="date">
+                </div>
+                <div class="search-box">
+                    <label for="max-price">Max Price</label>
+                    <input type="text" id="max-price" placeholder="Set max price">
+                </div>
+                <div class="search-icon">
+                    <i class="fas fa-search"></i>
+                </div>
             </div>
         </div>
-        
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    </body>
+    </main>
+</body>
 </html>
- 

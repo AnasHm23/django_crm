@@ -13,8 +13,10 @@ from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmView
 from django.contrib.messages.views import SuccessMessageMixin
-
-
+# import for api
+from rest_framework import generics
+from .serializers import RecordSerializer
+from rest_framework.permissions import AllowAny, IsAuthenticated
 
 # class customization
 
@@ -27,6 +29,22 @@ class CustomPasswordResetConfirmView(SuccessMessageMixin, PasswordResetConfirmVi
     template_name = 'password_reset_confirm.html'
     success_url = reverse_lazy('home')
     success_message = "the password has been reset successfully."
+
+# setting up the API
+class RecordList(generics.ListAPIView):
+    queryset = Record.objects.all()
+    serializer_class = RecordSerializer
+    permission_classes = [AllowAny]
+
+class  RecordListCreate(generics.ListCreateAPIView):
+    queryset = Record.objects.all()
+    serializer_class = RecordSerializer
+    permission_classes = [IsAuthenticated]
+
+class RecordRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Record.objects.all()
+    serializer_class = RecordSerializer
+    permission_classes = [IsAuthenticated]
 
 # authentication and authorization
 def home(request):

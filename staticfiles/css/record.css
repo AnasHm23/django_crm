@@ -1,0 +1,103 @@
+/* static/css/record.css */
+body {
+    background: url('path/to/your/background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    margin-top: 10px;
+}
+
+.animated-card {
+    background: linear-gradient(to bottom, #3f638a, #00b4d8);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 40px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.card-header {
+    background: linear-gradient(to bottom, #2791e3, #edeff0);
+    color: white;
+    border-radius: 15px 15px 0 0;
+    padding: 15px;
+}
+
+.card-body {
+    background: white;
+    border-radius: 0 0 15px 15px;
+    padding: 20px;
+}
+
+.list-group-item {
+    border: none;
+    padding: 10px 20px;
+}
+
+.list-group-item:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.list-group-item:nth-child(even) {
+    background-color: #e9e9e9;
+}
+
+.btn-primary {
+    background: linear-gradient(to bottom, #007bff, #0056b3);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to bottom, #0056b3, #007bff);
+}
+
+.btn-danger {
+    background: linear-gradient(to bottom, #dc3545, #b02a37);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.btn-delete:hover {
+    background: linear-gradient(to bottom, #df8790, #630b14);
+}
+
+.btn-update:hover {
+    background: linear-gradient(to bottom, #82c5ec, #042f7e);
+}
+
+.btn-update {
+    background: linear-gradient(to bottom, #007bff, #00b4d8);
+}
+
+.btn-danger me-1 {
+    background: linear-gradient(to bottom, #00b4d8, #007bff);
+}
+
+.form-control {
+    border-radius: 25px;
+    padding-left: 15px;
+}
+
+.btn-delete {
+    background: linear-gradient(to bottom, #be2d1a, #5b1103);
+}
+

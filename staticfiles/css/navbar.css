@@ -1,0 +1,56 @@
+/* static/css/navbar.css */
+.navbar {
+    background: linear-gradient(135deg, #0b3863, #074a5a);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.navbar .navbar-brand {
+    color: white !important;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar .navbar-brand:hover {
+    color: #ffdd57 !important;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: white !important;
+    padding: 10px 20px;
+    transition: background 0.3s ease, color 0.3s ease;
+    border-radius: 20px;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    background: rgba(7, 72, 112, 0.2);
+    color: #ffdd57 !important;
+}
+
+.navbar .navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar .dropdown-menu {
+    background: rgba(179, 221, 239, 0.9);
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .dropdown-item {
+    color: #007bff !important;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.navbar .dropdown-item:hover {
+    background: #007bff;
+    color: white !important;
+}

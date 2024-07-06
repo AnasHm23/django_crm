@@ -1,16 +1,10 @@
 /* static/css/home.css */
-body {
-    background: url('path/to/your/background-image.jpg') no-repeat center center fixed;
-    background-size: cover;
-    font-family: 'Arial', sans-serif;
-}
-
 .container {
     margin-top: 10px;
 }
 
 .animated-card {
-    background: linear-gradient(135deg, #3f638a, #00b4d8);
+    background: linear-gradient(180deg, #3695be, #396375);
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     padding: 20px;
