@@ -18,7 +18,7 @@ A simple CRM (Customer Relationship Management) system built using Django.
 
 ## home
 
-[image](https://github.com/Anashm24/django_crm/blob/main/static/images/django_crm.png)
+![image](https://github.com/Anashm24/django_crm/blob/main/static/images/django_crm.png)
 
 ## Project Description
 
