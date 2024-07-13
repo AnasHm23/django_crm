@@ -4,13 +4,21 @@ A simple CRM (Customer Relationship Management) system built using Django.
 
 ## Table of Contents
 
-- [Project Description](#project-description)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Set up](#setup)
-- [Contributing](#contributing)
-- [Contact](#contact)
+- [Django CRM](#django-crm)
+  - [Table of Contents](#table-of-contents)
+  - [home](#home)
+  - [Project Description](#project-description)
+  - [Features](#features)
+  - [Installation](#installation)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Contributing](#contributing)
+    - [Contact](#contact)
+  - [**mail**: anasdev23@gmail.com](#mail-anasdev23gmailcom)
+
+## home
+
+[image](https://github.com/Anashm24/django_crm/blob/main/static/images/django_crm.png)
 
 ## Project Description
 
